@@ -39,6 +39,14 @@ public class Airport
      */
     public int updateFlights()
     {
-        return 0;
+        int numRemoved = 0;
+        for (int i = 0; i < allFlights.size(); i++){
+            if (allFlights.get(i).getNumPassengers() < allFlights.get(i).getCapacity() * .20){
+                allFlights.remove(i);
+                i--;
+                numRemoved++;
+            }
+        }
+        return numRemoved;
     }
 }
