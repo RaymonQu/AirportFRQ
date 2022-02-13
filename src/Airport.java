@@ -28,7 +28,7 @@ public class Airport
             if (allFlights.get(i).getNumPassengers() > allFlights.get(i).getCapacity()){
                 toMultiply = allFlights.get(i).getCapacity();
             }
-            System.out.println(toMultiply * allFlights.get(i).getPrice());
+            total += toMultiply * allFlights.get(i).getPrice();
         }
         return total;
     }
@@ -42,9 +42,9 @@ public class Airport
         int numRemoved = 0;
         for (int i = 0; i < allFlights.size(); i++){
             if (allFlights.get(i).getNumPassengers() < allFlights.get(i).getCapacity() * .20){
+                numRemoved += allFlights.get(i).getNumPassengers();
                 allFlights.remove(i);
                 i--;
-                numRemoved++;
             }
         }
         return numRemoved;
